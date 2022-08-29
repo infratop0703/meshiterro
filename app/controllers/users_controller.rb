@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @post_images = @user.post_images #特定のユーザーに紐付けられた投稿全てを拾う
+    @post_images = @user.post_images.page(params[:page])#特定のユーザーに紐付けられた投稿全てを拾う
   end
 
   def edit
