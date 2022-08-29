@@ -4,6 +4,9 @@ class PostImage < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   
+  validates :shop_name, presence: true
+  validates :image , presence: true
+  
   # 画像が未投稿でもエラーを出さない
   def get_image
     unless image.attached?
